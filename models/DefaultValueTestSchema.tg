@@ -1,0 +1,13 @@
+// JGraLab - The Java graph laboratory
+//   Version : unknown
+//   Codename: unknown
+
+TGraph 2;
+Schema de.uni_koblenz.gremftest.schemas.DefaultValueTestSchema;
+GraphClass DefaultValueTestGraph { id: Long =  "123456789", isThere: Boolean =  "t", location: String =  "\"Nowhere\"", numberOfPeople: Integer =  "100", price: Double =  "11.11" };
+RecordDomain Address ( number: Integer, plz: Long, street: String, town: String );
+EnumDomain Category ( FUN, BUSINESS, FAMILY );
+RecordDomain Item ( articleNumber: Long, count: Integer, description: String, price: Double );
+RecordDomain MetaData ( author: String, day: Integer, month: Integer, year: Integer );
+RecordDomain PersonInfo ( address: Address, name: String, tasks: List<String> );
+VertexClass Bill { category: Category =  "BUSINESS", items: List<Item> =  "[ ( 333 5 \"Bottle of Water\" 1.99 ) ( 454 2 \"Chewing gum\" 0.99 ) ]", metaData: MetaData =  "( \"Hugo Harry\" 1 1 2012 )", recipient: PersonInfo =  "( ( 3 56479 \"Fakenhahner Weg\" \"Seck\" ) \"Cornelia Heckelmann\" [ \"read\" \"redirect\" ] )" };

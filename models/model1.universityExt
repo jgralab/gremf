@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI  xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:connection="http://universityextended/1.0/connection" xmlns:people="http://universityextended/1.0/people" xmlns:universityextended="http://universityextended/1.0">
+<universityextended:University>
+  <persons xsi:type="people:Professor" name="Ralf Lämmel" lectures="//@courses.2/@lecture"/>
+  <persons xsi:type="people:Professor" name="Jürgen Ebert" lectures="//@courses.0/@lecture"/>
+  <persons xsi:type="people:Professor" name="Dietrich Paulus" lectures="//@courses.1/@lecture"/>
+  <persons xsi:type="people:Assistant" name="Detlev Droege" tutorial="//@courses.1/@tutorial"/>
+  <persons xsi:type="people:Assistant" name="Tassilo Horn" isDoctoralCandidate="true" tutorial="//@courses.0/@tutorial"/>
+  <persons xsi:type="people:Assistant" name="Sebastian Jackel"/>
+  <persons xsi:type="people:Student" name="Michael Kusenbach" matriculationnumber="207200011" courseVisit="#/1 #/2"/>
+  <persons xsi:type="people:Student" name="Malte Knauf" matriculationnumber="207200022" courseVisit="#/3 #/7"/>
+  <persons xsi:type="people:Student" name="Lorenz Heikenfeld" matriculationnumber="207100033" courseVisit="#/5 #/6"/>
+  <persons xsi:type="people:Student" name="Verena Smolinsky" matriculationnumber="207100044" courseVisit="#/4"/>
+  <courses title="Software Engineering" startOfCourse="2009-04-18T01:00:00.000+0200" endOfCourse="2009-06-30T01:00:00.000+0200" visitor="#/6 #/7">
+    <lecture time="//@times.1" room="//@rooms.1" title="Lecture to Software Engineering" lecturer="//@persons.1">
+      <captions>Basics</captions>
+      <captions>UML</captions>
+      <captions>Process Models</captions>
+    </lecture>
+    <tutorial time="//@times.3" room="//@rooms.2" title="Tutorial to Software Engineering" tutor="//@persons.4"/>
+  </courses>
+  <courses title="Image Processing" startOfCourse="2010-10-16T01:00:00.000+0200" endOfCourse="2011-02-28T00:00:00.000+0100" visitor="#/1 #/5">
+    <lecture time="//@times.0" room="//@rooms.3" title="Lecture to Image Processing" lecturer="//@persons.2">
+      <captions>Filter</captions>
+      <captions>Edge Detection</captions>
+      <captions>Object Recognition</captions>
+    </lecture>
+    <tutorial time="//@times.2" room="//@rooms.0" title="Tutorial to Image Processing" tutor="//@persons.3"/>
+  </courses>
+  <courses title="Software Languages" startOfCourse="2009-04-18T01:00:00.000+0200" endOfCourse="2009-06-30T01:00:00.000+0200" visitor="#/2 #/3 #/4">
+    <lecture time="//@times.4" room="//@rooms.2" title="Lecture to Software Languages" lecturer="//@persons.0">
+      <captions>Parsing</captions>
+      <captions>Interpreting</captions>
+      <captions>Compiling</captions>
+      <captions>Antlr</captions>
+    </lecture>
+  </courses>
+  <times day="Thursday" startHour="8" endHour="10"/>
+  <times startHour="10" endHour="12"/>
+  <times day="Friday" startHour="12" endHour="14"/>
+  <times day="Tuesday" startHour="16" endHour="18"/>
+  <times day="Wednesday" startHour="10" endHour="12"/>
+  <rooms building="B" roomnumber="13"/>
+  <rooms building="B" roomnumber="16"/>
+  <rooms building="B" roomnumber="17"/>
+  <rooms building="E" floor="3" roomnumber="12"/>
+</universityextended:University>
+<connection:Visits course="#/0/@courses.1" student="#/0/@persons.6"/>
+<connection:Visits motivation="AVERAGE_INTEREST" course="#/0/@courses.2" student="#/0/@persons.6"/>
+<connection:Visits course="#/0/@courses.2" student="#/0/@persons.7"/>
+<connection:Visits motivation="LOW_INTEREST" course="#/0/@courses.2" student="#/0/@persons.9"/>
+<connection:Visits course="#/0/@courses.1" student="#/0/@persons.8"/>
+<connection:Visits course="#/0/@courses.0" student="#/0/@persons.8"/>
+<connection:Visits motivation="AVERAGE_INTEREST" course="#/0/@courses.0" student="#/0/@persons.7"/>
+</xmi:XMI>

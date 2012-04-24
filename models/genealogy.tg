@@ -1,0 +1,17 @@
+// JGraLab - The Java graph laboratory
+//   Version : unknown
+//   Codename: unknown
+
+TGraph 2;
+Schema de.uni_koblenz.genealogy.GenealogySchema;
+GraphClass Genealogy;
+EnumDomain AgeGroup ( CHILD, ADULT );
+VertexClass Female: Person;
+VertexClass Male: Person;
+abstract VertexClass Person { ageGroup: AgeGroup, fullName: String, address: Address };
+RecordDomain Address ( street: String, town: String );
+EdgeClass HasChild: HasRelative from Person (2,2) role parents to Person (0,*) role children;
+abstract EdgeClass HasRelative from Person (0,*) to Person (0,*);
+EdgeClass HasSpouse: HasRelative from Male (0,1) role husband to Female (0,1) role wife;
+Graph "dc78ff92-1f627121-3c0cb8a-3655ec8a" 34 Genealogy (100 100 13 21);
+Package ;

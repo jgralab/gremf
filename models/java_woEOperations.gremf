@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="java" nsURI="http://www.emftext.org/java" nsPrefix="java">
+  <eSubpackages name="annotations" nsURI="http://www.emftext.org/java/annotations"
+      nsPrefix="annotations">
+    <eClassifiers xsi:type="ecore:EClass" name="Annotable" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="annotations" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationInstance"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationInstance" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotationInstanceOrModifier /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamespaceAwareElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="annotation" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/Classifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationParameter"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationParameter" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SingleAnnotationParameter" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationParameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationValue"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationParameterList" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationParameter">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="settings" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationAttributeSetting"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationAttributeSetting" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/InterfaceMethod"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationValue"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationValue" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationAttribute" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/InterfaceMethod">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultValue" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="arrays" nsURI="http://www.emftext.org/java/arrays" nsPrefix="arrays">
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayTypeable" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arrayDimensionsBefore"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayDimension"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arrayDimensionsAfter"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayDimension"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayDimension" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayInitializer" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayInitializationValue /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationValue">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initialValues" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayInitializationValue"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayInitializationValue" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayInstantiationBySize" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sizes" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArrayInstantiationByValues" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arrayInitializer" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayInitializer"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ArraySelector" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="position" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="classifiers" nsURI="http://www.emftext.org/java/classifiers"
+      nsPrefix="classifiers">
+    <eClassifiers xsi:type="ecore:EClass" name="Classifier" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/Type /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ConcreteClassifier" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/Classifier /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeParametrizable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/MemberContainer /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Member /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotableAndModifiable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+          transient="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Implementor" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="implements" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/ConcreteClassifier /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/Implementor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultExtends" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Interface" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/ConcreteClassifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extends" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultExtends" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/ConcreteClassifier /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/Implementor">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/EnumConstant"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Annotation" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/ConcreteClassifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AnonymousClass" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/Type /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/MemberContainer"/>
+  </eSubpackages>
+  <eSubpackages name="commons" nsURI="http://www.emftext.org/java/commons" nsPrefix="commons">
+    <eClassifiers xsi:type="ecore:EClass" name="Commentable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="comments" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamespaceAwareElement" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespaces" unique="false"
+          upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="containers" nsURI="http://www.emftext.org/java/containers" nsPrefix="containers">
+    <eClassifiers xsi:type="ecore:EClass" name="JavaRoot" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamespaceAwareElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//imports/ImportingElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CompilationUnit" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//containers/JavaRoot">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="classifiers" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/ConcreteClassifier"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//containers/JavaRoot /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/Annotable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="compilationUnits" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//containers/CompilationUnit"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subpackages" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//containers/Package"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EmptyModel" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//containers/JavaRoot"/>
+  </eSubpackages>
+  <eSubpackages name="expressions" nsURI="http://www.emftext.org/java/expressions"
+      nsPrefix="expressions">
+    <eClassifiers xsi:type="ecore:EClass" name="ExpressionList" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/ForLoopInitializer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Expression" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayInitializationValue /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/AnnotationValue"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AssignmentExpressionChild"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="assignmentOperator" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ConditionalExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AssignmentExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalExpressionChild"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expressionIf" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expressionElse" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AssignmentExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConditionalExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AssignmentExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ConditionalOrExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalOrExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConditionalOrExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ConditionalAndExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalOrExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalAndExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ConditionalAndExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalOrExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InclusiveOrExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalAndExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/InclusiveOrExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InclusiveOrExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ConditionalAndExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExclusiveOrExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/InclusiveOrExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ExclusiveOrExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExclusiveOrExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/InclusiveOrExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AndExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ExclusiveOrExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AndExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AndExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ExclusiveOrExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EqualityExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AndExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="equalityOperators" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/EqualityOperator"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/EqualityExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EqualityExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AndExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InstanceOfExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/EqualityExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/InstanceOfExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InstanceOfExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/EqualityExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RelationExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/InstanceOfExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/RelationExpressionChild"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relationOperators" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/RelationOperator"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RelationExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/InstanceOfExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ShiftExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/RelationExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ShiftExpressionChild"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="shiftOperators" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/ShiftOperator"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ShiftExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/RelationExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AdditiveExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ShiftExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AdditiveExpressionChild"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="additiveOperators" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AdditiveOperator"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AdditiveExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/ShiftExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiplicativeExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AdditiveExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="children" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/MultiplicativeExpressionChild"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="multiplicativeOperators"
+          lowerBound="1" upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/MultiplicativeOperator"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiplicativeExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/AdditiveExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UnaryExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/MultiplicativeExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operators" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/UnaryOperator"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/UnaryExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UnaryExpressionChild" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/MultiplicativeExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UnaryModificationExpression" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/UnaryExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/UnaryModificationExpressionChild"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operator" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/UnaryModificationOperator"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrefixUnaryModificationExpression"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/UnaryModificationExpression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SuffixUnaryModificationExpression"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/UnaryModificationExpression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UnaryModificationExpressionChild"
+        abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/UnaryExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CastExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/UnaryModificationExpressionChild">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="child" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/MultiplicativeExpressionChild"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimaryExpression" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/UnaryModificationExpressionChild"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NestedExpression" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="generics" nsURI="http://www.emftext.org/java/generics" nsPrefix="generics">
+    <eClassifiers xsi:type="ecore:EClass" name="TypeArgument" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeArgumentable" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeArguments" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgument"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CallTypeArgumentable" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="callTypeArguments" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgument"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeParametrizable" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeParameters" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeParameter"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExtendsTypeArgument" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extendTypes" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QualifiedTypeArgument" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgument /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SuperTypeArgument" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgument">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="superType" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeParameter" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/Classifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extendTypes" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="UnknownTypeArgument" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgument"/>
+  </eSubpackages>
+  <eSubpackages name="imports" nsURI="http://www.emftext.org/java/imports" nsPrefix="imports">
+    <eClassifiers xsi:type="ecore:EClass" name="Import" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamespaceAwareElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ImportingElement" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="imports" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//imports/Import"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StaticImport" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//imports/Import">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="static" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Static"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ClassifierImport" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//imports/Import">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="classifier" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/ConcreteClassifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PackageImport" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//imports/Import"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StaticClassifierImport" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//imports/StaticImport"/>
+    <eClassifiers xsi:type="ecore:EClass" name="StaticMemberImport" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//imports/StaticImport">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="staticMembers" lowerBound="1"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="instantiations" nsURI="http://www.emftext.org/java/instantiations"
+      nsPrefix="instantiations">
+    <eClassifiers xsi:type="ecore:EClass" name="Initializable" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="initialValue" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Instantiation" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Argumentable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgumentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NewConstructorCall" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//instantiations/Instantiation /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/CallTypeArgumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="anonymousClass" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/AnonymousClass"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExplicitConstructorCall" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//instantiations/Instantiation">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="callTarget" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Self"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="literals" nsURI="http://www.emftext.org/java/literals" nsPrefix="literals">
+    <eClassifiers xsi:type="ecore:EClass" name="Literal" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/PrimaryExpression"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Self" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="BooleanLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Literal">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CharacterLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Literal">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EChar"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FloatLiteral" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Literal"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DecimalFloatLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/FloatLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimalValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HexFloatLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/FloatLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hexValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DoubleLiteral" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Literal"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DecimalDoubleLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/DoubleLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimalValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HexDoubleLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/DoubleLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hexValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IntegerLiteral" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Literal"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DecimalIntegerLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/IntegerLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimalValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HexIntegerLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/IntegerLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hexValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OctalIntegerLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/IntegerLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="octalValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LongLiteral" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Literal"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DecimalLongLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/LongLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimalValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="HexLongLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/LongLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="hexValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OctalLongLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/LongLiteral">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="octalValue" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBigInteger"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NullLiteral" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Literal"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Super" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Self"/>
+    <eClassifiers xsi:type="ecore:EClass" name="This" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Self"/>
+  </eSubpackages>
+  <eSubpackages name="members" nsURI="http://www.emftext.org/java/members" nsPrefix="members">
+    <eClassifiers xsi:type="ecore:EClass" name="ExceptionThrower" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="exceptions" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/NamespaceClassifierReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MemberContainer" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Member"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="defaultMembers" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Member"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AdditionalField" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//instantiations/Initializable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Constructor" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Member /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementListContainer /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//parameters/Parametrizable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeParametrizable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/ExceptionThrower /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotableAndModifiable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EmptyMember" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Member"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Member /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//instantiations/Initializable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//variables/Variable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotableAndModifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="additionalFields" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/AdditionalField"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Method" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Member /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeParametrizable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//parameters/Parametrizable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/ExceptionThrower /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotableAndModifiable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="InterfaceMethod" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Method"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ClassMethod" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Method /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementListContainer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumConstant" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Argumentable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//annotations/Annotable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="anonymousClass" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/AnonymousClass"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="modifiers" nsURI="http://www.emftext.org/java/modifiers" nsPrefix="modifiers">
+    <eClassifiers xsi:type="ecore:EClass" name="Modifier" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotationInstanceOrModifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationInstanceOrModifier" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotableAndModifiable" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="annotationsAndModifiers"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotationInstanceOrModifier"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Modifiable" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Abstract" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Final" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Native" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Protected" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Public" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Private" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Static" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Strictfp" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Synchronized" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Transient" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Volatile" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifier"/>
+  </eSubpackages>
+  <eSubpackages name="operators" nsURI="http://www.emftext.org/java/operators" nsPrefix="operators">
+    <eClassifiers xsi:type="ecore:EClass" name="Operator" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AdditiveOperator" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentOperator" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EqualityOperator" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MultiplicativeOperator" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RelationOperator" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ShiftOperator" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UnaryOperator" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UnaryModificationOperator" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/Operator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentAnd" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentDivision" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentExclusiveOr" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentMinus" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentModulo" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentMultiplication" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentLeftShift" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentOr" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentPlus" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentRightShift" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AssignmentUnsignedRightShift" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AssignmentOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Equal" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/EqualityOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="NotEqual" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/EqualityOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GreaterThan" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/RelationOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="GreaterThanOrEqual" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/RelationOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LessThan" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/RelationOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LessThanOrEqual" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/RelationOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Addition" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AdditiveOperator /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/UnaryOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Subtraction" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/AdditiveOperator /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/UnaryOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Division" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/MultiplicativeOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Multiplication" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/MultiplicativeOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Remainder" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/MultiplicativeOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Complement" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/UnaryOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MinusMinus" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/UnaryModificationOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Negate" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/UnaryOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PlusPlus" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/UnaryModificationOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LeftShift" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/ShiftOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="RightShift" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/ShiftOperator"/>
+    <eClassifiers xsi:type="ecore:EClass" name="UnsignedRightShift" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//operators/ShiftOperator"/>
+  </eSubpackages>
+  <eSubpackages name="parameters" nsURI="http://www.emftext.org/java/parameters" nsPrefix="parameters">
+    <eClassifiers xsi:type="ecore:EClass" name="Parameter" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//variables/Variable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotableAndModifiable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Parametrizable" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//parameters/Parameter"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="OrdinaryParameter" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//parameters/Parameter"/>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableLengthParameter" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//parameters/Parameter"/>
+  </eSubpackages>
+  <eSubpackages name="references" nsURI="http://www.emftext.org/java/references" nsPrefix="references">
+    <eClassifiers xsi:type="ecore:EClass" name="Reference" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/PrimaryExpression /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arraySelectors" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArraySelector"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Argumentable" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReferenceableElement" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ElementReference" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IdentifierReference" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ElementReference"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MethodCall" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ElementReference /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Argumentable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/CallTypeArgumentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ReflectiveClassReference" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveTypeReference" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="primitiveType" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringReference" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SelfReference" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/Reference">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="self" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//literals/Self"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="statements" nsURI="http://www.emftext.org/java/statements" nsPrefix="statements">
+    <eClassifiers xsi:type="ecore:EClass" name="StatementContainer" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statement" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StatementListContainer" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Conditional" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ForLoopInitializer" abstract="true"
+        eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="SwitchCase" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementListContainer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Assert" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Conditional">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="errorMessage" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Break" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Jump"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//members/Member /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementListContainer /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/Modifiable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="CatchBlock" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementListContainer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//parameters/OrdinaryParameter"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementContainer /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Conditional">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elseStatement" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Continue" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Jump"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DefaultSwitchCase" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/SwitchCase"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DoWhileLoop" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/WhileLoop"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EmptyStatement" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ExpressionStatement" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expression" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ForLoop" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementContainer /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Conditional">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/ForLoopInitializer"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="updates" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ForEachLoop" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementContainer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//parameters/OrdinaryParameter"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="collection" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Jump" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/JumpLabel"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="JumpLabel" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementContainer /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalVariableStatement" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//variables/LocalVariable"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NormalSwitchCase" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/SwitchCase /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Conditional"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Return" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="returnValue" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="cases" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/SwitchCase"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SynchronizedBlock" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementListContainer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lockProvider" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Throw" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="throwable" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TryBlock" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementListContainer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="catcheBlocks" upperBound="-1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/CatchBlock"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="finallyBlock" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Block"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WhileLoop" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/Statement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/StatementContainer">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//expressions/Expression"
+          containment="true"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="types" nsURI="http://www.emftext.org/java/types" nsPrefix="types">
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TypedElement" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeReference" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeReference" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ClassifierReference" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgumentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+          eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//classifiers/Classifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamespaceClassifierReference" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamespaceAwareElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="classifierReferences"
+          lowerBound="1" upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/ClassifierReference"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/Type /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypeReference"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Boolean" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Byte" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Char" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Double" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Float" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Int" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Long" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Short" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Void" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/PrimitiveType"/>
+  </eSubpackages>
+  <eSubpackages name="variables" nsURI="http://www.emftext.org/java/variables" nsPrefix="variables">
+    <eClassifiers xsi:type="ecore:EClass" name="Variable" abstract="true" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//commons/NamedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//types/TypedElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//generics/TypeArgumentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalVariable" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//variables/Variable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//instantiations/Initializable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//statements/ForLoopInitializer /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//modifiers/AnnotableAndModifiable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="additionalLocalVariables"
+          upperBound="-1" eType="ecore:EClass /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//variables/AdditionalLocalVariable"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="AdditionalLocalVariable" eSuperTypes="/Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//references/ReferenceableElement /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//arrays/ArrayTypeable /Users/kheckelmann/Documents/Uni/Forschungspraktikum/gremf-ws11/development/models/java_woEOperations.gremf#//instantiations/Initializable"/>
+  </eSubpackages>
+</ecore:EPackage>

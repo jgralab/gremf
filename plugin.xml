@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension
+        point="org.eclipse.emf.ecore.extension_parser">
+     <parser
+           class="de.uni_koblenz.gremf.resource.GrEMFResourceFactoryImpl"
+           type="gremf">
+     </parser>
+     <parser
+           class="de.uni_koblenz.gremf.resource.GrEMFResourceFactoryImpl"
+           type="tg">
+     </parser>
+  </extension>
+
+</plugin>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:a="http://de.uni_koblenz.gremf/a.gremf" xsi:schemaLocation="http://de.uni_koblenz.gremf/a.gremf models/a.gremf">
+  <a:A ThisB="models/model1.b#/"/>
+  <a:A/>
+</xmi:XMI>

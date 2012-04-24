@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:concept="http://de.uni_koblenz.gremf/concept.gremf">
+  <concept:From multTo="/2 /3"/>
+  <concept:To multFrom="/2 /3"/>
+  <concept:Link index="1" from="/0" to="/1"/>
+  <concept:Link index="2" from="/0" to="/1"/>
+</xmi:XMI>

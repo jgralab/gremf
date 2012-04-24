@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="universitycourses"
+    nsURI="http://universitycourses/1.0" nsPrefix="universitycourses">
+  <eClassifiers xsi:type="ecore:EClass" name="UniversityCoursesModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelPerson" upperBound="-1"
+        eType="#//people/Person" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelCourse" upperBound="-1"
+        eType="#//work/Course" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelSection" upperBound="-1"
+        eType="#//work/Section" containment="true"/>
+  </eClassifiers>
+  <eSubpackages name="people" nsURI="http://universitycourses/1.0/people" nsPrefix="universitycourses.people">
+    <eClassifiers xsi:type="ecore:EClass" name="Person" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Professor" eSuperTypes="#//people/Person">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="rank" eType="#//people/SalaryRank"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lecture" upperBound="-1"
+          eType="#//work/Lecture" eOpposite="#//work/Lecture/lecturer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Assistant" eSuperTypes="#//people/Person">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tutorial" upperBound="-1"
+          eType="#//work/Tutorial" eOpposite="#//work/Tutorial/tutor"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Student" eSuperTypes="#//people/Person">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="averageGrade" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="course" upperBound="-1"
+          eType="#//work/Course" eOpposite="#//work/Course/visitor"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="SalaryRank">
+      <eLiterals name="W1"/>
+      <eLiterals name="W2" value="1"/>
+      <eLiterals name="W3" value="2"/>
+      <eLiterals name="W4" value="3"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="work" nsURI="http://universitycourses/1.0/work" nsPrefix="universitycourses.work">
+    <eClassifiers xsi:type="ecore:EClass" name="Course" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="courseSection" lowerBound="1"
+          upperBound="-1" eType="#//work/Section" containment="true" eOpposite="#//work/Section/belongingCourse"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="visitor" lowerBound="1"
+          upperBound="-1" eType="#//people/Student" eOpposite="#//people/Student/course"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Lecture" eSuperTypes="#//work/Course">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lecturer" lowerBound="1"
+          eType="#//people/Professor" eOpposite="#//people/Professor/lecture"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="helpingTutorial" eType="#//work/Tutorial"
+          eOpposite="#//work/Tutorial/belongingLecture"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Tutorial" eSuperTypes="#//work/Course">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="tutor" lowerBound="1"
+          upperBound="-1" eType="#//people/Assistant" eOpposite="#//people/Assistant/tutorial"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="belongingLecture" lowerBound="1"
+          eType="#//work/Lecture" eOpposite="#//work/Lecture/helpingTutorial"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Section">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="caption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="content" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="belongingCourse" lowerBound="1"
+          eType="#//work/Course" eOpposite="#//work/Course/courseSection"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

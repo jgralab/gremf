@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="concept" nsURI="http://de.uni_koblenz.gremf/concept.gremf" nsPrefix="concept">
+  <eClassifiers xsi:type="ecore:EClass" name="From">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multTo" upperBound="-1"
+        eType="ecore:EClass models/concept.gremf#//Link"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="To">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multFrom" upperBound="-1"
+        eType="ecore:EClass models/concept.gremf#//Link"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="from" lowerBound="1" eType="ecore:EClass models/concept.gremf#//From"
+        eOpposite="models/concept.gremf#//From/multTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="to" lowerBound="1" eType="ecore:EClass models/concept.gremf#//To"
+        eOpposite="models/concept.gremf#//To/multFrom"/>
+  </eClassifiers>
+</ecore:EPackage>

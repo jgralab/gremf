@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- grEMF                                                                    -->
+<!--                                                                          -->
+<!-- Copyright (C) 2006-2012 Institute for Software Technology                -->
+<!--                         University of Koblenz-Landau, Germany            -->
+<!--                         ist@uni-koblenz.de                               -->
+<!--                                                                          -->
+<!-- For bug reports, documentation and further information, visit            -->
+<!--                                                                          -->
+<!--                         https://github.com/jgralab/gremf                 -->
+<!--                                                                          -->
+<!-- This program is free software; you can redistribute it and/or modify it  -->
+<!-- under the terms of the GNU General Public License as published by the    -->
+<!-- Free Software Foundation; either version 3 of the License, or (at your   -->
+<!-- option) any later version.                                               -->
+<!--                                                                          -->
+<!-- This program is distributed in the hope that it will be useful, but      -->
+<!-- WITHOUT ANY WARRANTY; without even the implied warranty of               -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General -->
+<!-- Public License for more details.                                         -->
+<!--                                                                          -->
+<!-- You should have received a copy of the GNU General Public License along  -->
+<!-- with this program; if not, see <http://www.gnu.org/licenses>.            -->
+<!--                                                                          -->
+<!-- Additional permission under GNU GPL version 3 section 7                  -->
+<!--                                                                          -->
+<!-- If you modify this Program, or any covered work, by linking or combining -->
+<!-- it with Eclipse (or a modified version of that program or an Eclipse     -->
+<!-- plugin), containing parts covered by the terms of the Eclipse Public     -->
+<!-- License (EPL), the licensors of this Program grant you additional        -->
+<!-- permission to convey the resulting work.  Corresponding Source for a     -->
+<!-- non-source form of such a combination shall include the source code for  -->
+<!-- the parts of JGraLab used as well as that of the covered work.           -->
+
+<project basedir="." default="compile" name="grEMF">
+
+	<!-- user properties -->
+	<property file="user.properties" />
+
+	<!-- project properties -->
+	<property name="projectname" value="gremf" />
+	<property name="basePackage" value="de.uni_koblenz.${projectname}" />
+	<property name="basePackagePath" value="de/uni_koblenz/${projectname}" />
+
+	<property name="src.dir" value="src" />
+	<property name="bin.dir" value="bin" />
+	<property name="lib.dir" value="libs" />
+	<property name="build.dir" value="build" />
+	<property name="build.jar" location="${build.dir}/jar/${ant.project.name}.jar" />
+	<property name="test.dir" value="testit" />
+	<property name="test.out.dir" value="tests" />
+	<property name="eval.dir" value="evalit" />
+	<property name="eval.out.dir" value="evals" />
+	<property name="doc.dir" value="${build.dir}/doc" />
+	<property name="documentexcludes" value="" />
+	<property name="document.access" value="public" />
+	<property name="license.file" value="license/gpl-3.0-header.txt" />
+
+	<!-- java properties -->
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.6" />
+	<property name="source" value="1.6" />
+	<property name="javac.encoding" value="UTF8" />
+
+	<path id="dependencies.libraryclasspath">
+		<pathelement path="${emfprojects.dir}/org.eclipse.emf.ecore/bin" />
+		<pathelement path="${emfprojects.dir}/org.eclipse.emf.ecore.xmi/bin" />
+		<pathelement path="${emfprojects.dir}/org.eclipse.emf.common/bin" />
+		<pathelement path="${istprojects.dir}/jgralab4eclipse/bin" />
+		<fileset dir="${eclipsehome.dir}/plugins">
+			<include name="org.eclipse.osgi_*.jar" />
+			<include name="org.eclipse.equinox.weaving.hook_*.jar" />
+		</fileset>
+	</path>
+	<path id="junit.libraryclasspath">
+		<fileset dir="${eclipsehome.dir}/plugins">
+			<include name="org.junit_4*/junit.jar" />
+			<include name="org.hamcrest.core_*.jar" />
+		</fileset>
+	</path>
+	<path id="gremf.classpath">
+		<pathelement location="bin" />
+		<path refid="dependencies.libraryclasspath" />
+		<path refid="junit.libraryclasspath" />
+		<pathelement location="${lib.dir}/bb.jar" />
+		<pathelement location="${lib.dir}/jsci-core.jar" />
+		<pathelement location="${lib.dir}/mt-13.jar" />
+	</path>
+	<path id="gremf.eval.classpath">
+		<pathelement location="bin" />
+		<path refid="dependencies.libraryclasspath" />
+		<pathelement location="${lib.dir}/bb.jar" />
+		<pathelement location="${lib.dir}/jsci-core.jar" />
+		<pathelement location="${lib.dir}/mt-13.jar" />
+	</path>
+	<path id="gremf.test.classpath">
+		<pathelement location="bin" />
+		<path refid="dependencies.libraryclasspath" />
+		<path refid="junit.libraryclasspath" />
+	</path>
+	<path id="gremf.util.path">
+		<pathelement path="${istprojects.dir}/jgralab/bin" />
+		<pathelement path="${istprojects.dir}/common/bin" />
+		<fileset dir="${istprojects.dir}/common/lib" includes="**/*.jar" />
+	</path>
+
+	<target name="compile.init">
+		<mkdir dir="bin" />
+	</target>
+	<target depends="compile.init" name="compile">
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}" encoding="${javac.encoding}" includeantruntime="false">
+			<src path="src" />
+			<classpath refid="gremf.classpath" />
+		</javac>
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}" encoding="${javac.encoding}" includeantruntime="false">
+			<src path="testit" />
+			<classpath refid="gremf.classpath" />
+		</javac>
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}" encoding="${javac.encoding}" includeantruntime="false">
+			<src path="evalit" />
+			<classpath refid="gremf.classpath" />
+		</javac>
+	</target>
+
+	<target name="build.init">
+		<mkdir dir="${build.dir}/jar" />
+		<mkdir dir="${build.dir}/classes" />
+	</target>
+	<target depends="build.init" name="build">
+		<javac debug="true" debuglevel="${debuglevel}" destdir="${build.dir}/classes" source="${source}" target="${target}" includeantruntime="false">
+			<src path="src" />
+			<classpath refid="gremf.classpath" />
+		</javac>
+		<zip destfile="${build.jar}">
+			<zipfileset dir="${build.dir}/classes" />
+			<zipfileset dir="." includes="META-INF/MANIFEST.MF" />
+			<zipfileset dir="." includes="plugin.xml" />
+		</zip>
+	</target>
+
+	<target name="clean">
+		<delete dir="${bin.dir}" />
+	</target>
+	<target depends="clean" name="cleanall">
+		<delete dir="${build.dir}" />
+		<delete dir="${test.out.dir}" />
+		<delete dir="${eval.out.dir}" />
+	</target>
+
+	<!-- tests -->
+	<target depends="compile, testit.init" name="testit">
+		<junit fork="yes" printsummary="withOutAndErr" dir=".">
+			<formatter type="xml" />
+			<test name="de.uni_koblenz.gremftest.RunGrEMFTests" todir="${test.out.dir}" />
+			<classpath refid="test.classpath" />
+		</junit>
+	</target>
+	<target name="testit.init">
+		<mkdir dir="${test.out.dir}" />
+	</target>
+	<target depends="testit" name="testit.report">
+		<junitreport todir="${test.out.dir}">
+			<fileset dir="${test.out.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${test.out.dir}" />
+		</junitreport>
+	</target>
+
+	<!-- evals -->
+	<target depends="compile, evalit.init" name="evalit">
+		<antcall target="evalit.benchmark" />
+		<antcall target="evalit.profiling" />
+	</target>
+	<target name="evalit.init">
+		<mkdir dir="${eval.out.dir}" />
+	</target>
+
+	<target depends="compile, evalit.init" name="evalit.benchmark">
+		<antcall target="evalit.benchmark.load" />
+		<antcall target="evalit.benchmark.traverse" />
+		<antcall target="evalit.benchmark.find" />
+		<antcall target="evalit.benchmark.handling.objects" />
+		<antcall target="evalit.benchmark.handling.features" />
+	</target>
+
+	<target depends="compile, evalit.init" name="evalit.profiling">
+		<antcall target="evalit.profiling.load" />
+		<antcall target="evalit.profiling.traverse" />
+		<antcall target="evalit.profiling.find" />
+		<antcall target="evalit.profiling.handling.objects" />
+		<antcall target="evalit.profiling.handling.features" />
+	</target>
+
+	<target depends="compile, evalit.init" name="evalit.benchmark.load">
+		<java classname="de.uni_koblenz.gremfeval.code.load.BenchmarkLoad" maxmemory="2048M" failonerror="true" fork="yes" dir=".">
+			<classpath refid="gremf.eval.classpath" />
+			<arg value="${eval.out.dir}" />
+		</java>
+	</target>
+	<target depends="compile, evalit.init" name="evalit.benchmark.traverse">
+		<java classname="de.uni_koblenz.gremfeval.code.traverse.BenchmarkTraverse" maxmemory="2048M" failonerror="true" fork="yes" dir=".">
+			<classpath refid="gremf.eval.classpath" />
+			<arg value="${eval.out.dir}" />
+		</java>
+	</target>
+	<target depends="compile, evalit.init" name="evalit.benchmark.find">
+		<java classname="de.uni_koblenz.gremfeval.code.find.BenchmarkFind" maxmemory="2048M" failonerror="true" fork="yes" dir=".">
+			<classpath refid="gremf.eval.classpath" />
+			<arg value="${eval.out.dir}" />
+		</java>
+	</target>
+	<target depends="compile, evalit.init" name="evalit.benchmark.handling.objects">
+		<java classname="de.uni_koblenz.gremfeval.code.objecthandling.BenchmarkObjectHandling" maxmemory="2048M" failonerror="true" fork="yes" dir=".">
+			<classpath refid="gremf.eval.classpath" />
+			<arg value="${eval.out.dir}" />
+		</java>
+	</target>
+	<target depends="compile, evalit.init" name="evalit.benchmark.handling.features">	
+		<java classname="de.uni_koblenz.gremfeval.code.featurehandling.BenchmarkFeatureHandling" maxmemory="2048M" failonerror="true" fork="yes" dir=".">
+				<classpath refid="gremf.eval.classpath" />
+				<arg value="${eval.out.dir}" />
+			</java>
+	</target>
+
+	<target depends="compile, evalit.init" name="evalit.profiling.load">
+		<java classname="de.uni_koblenz.gremfeval.code.load.ProfilerEMFLoad" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFview_load_cpu.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.load.ProfilerEMFLoad" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFplain_load_cpu.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.load.ProfilerEMFLoad" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFview_load_heap.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.load.ProfilerEMFLoad" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFplain_load_heap.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+	</target>
+	<target depends="compile, evalit.init" name="evalit.profiling.traverse">
+		<java classname="de.uni_koblenz.gremfeval.code.traverse.ProfilerEMFTraverse" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFview_traverse_cpu.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.traverse.ProfilerEMFTraverse" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFplain_traverse_cpu.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.traverse.ProfilerEMFTraverse" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFview_traverse_heap.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.traverse.ProfilerEMFTraverse" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFplain_traverse_heap.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+	</target>
+	<target depends="compile, evalit.init" name="evalit.profiling.find">
+		<java classname="de.uni_koblenz.gremfeval.code.find.ProfilerEMFFind" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFview_find_cpu.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.find.ProfilerEMFFind" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFplain_find_cpu.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.find.ProfilerEMFFind" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFview_find_heap.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.find.ProfilerEMFFind" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFplain_find_heap.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+	</target>
+	<target depends="compile, evalit.init" name="evalit.profiling.handling.objects">
+		<java classname="de.uni_koblenz.gremfeval.code.objecthandling.ProfilerEMFObjectHandling" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFview_objecthandling_cpu.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.objecthandling.ProfilerEMFObjectHandling" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFplain_objecthandling_cpu.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.objecthandling.ProfilerEMFObjectHandling" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFview_objecthandling_heap.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.objecthandling.ProfilerEMFObjectHandling" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFplain_objecthandling_heap.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+	</target>
+	<target depends="compile, evalit.init" name="evalit.profiling.handling.features">
+		<java classname="de.uni_koblenz.gremfeval.code.featurehandling.ProfilerEMFFeatureHandling" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFview_featurehandling_cpu.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.featurehandling.ProfilerEMFFeatureHandling" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=cpu=samples,interval=5,file=${eval.out.dir}/EMFplain_featurehandling_cpu.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.featurehandling.ProfilerEMFFeatureHandling" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFview_featurehandling_heap.hprof.txt" />
+			<arg value="true" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+		<java classname="de.uni_koblenz.gremfeval.code.featurehandling.ProfilerEMFFeatureHandling" failonerror="true" fork="yes" dir=".">
+			<jvmarg line="-agentlib:hprof=heap=dump,file=${eval.out.dir}/EMFplain_featurehandling_heap.hprof.txt" />
+			<arg value="false" />
+			<classpath refid="gremf.eval.classpath" />
+		</java>
+	</target>
+	<target depends="evalit" name="evalit.report">
+		<loadfile property="load.benchmark" srcFile="${eval.out.dir}/load_benchmark.txt" />
+		<loadfile property="traverse.benchmark" srcFile="${eval.out.dir}/traverse_benchmark.txt" />
+		<loadfile property="find.benchmark" srcFile="${eval.out.dir}/find_benchmark.txt" />
+		<loadfile property="objecthandling.benchmark" srcFile="${eval.out.dir}/objecthandling_benchmark.txt" />
+		<loadfile property="featurehandling.benchmark" srcFile="${eval.out.dir}/featurehandling_benchmark.txt" />
+		<echo message="${load.benchmark}" />
+		<echo message="${traverse.benchmark}" />
+		<echo message="${find.benchmark}" />
+		<echo message="${objecthandling.benchmark}" />
+		<echo message="${featurehandling.benchmark}" />
+	</target>
+
+	<!-- ist utilities -->
+	<target name="ist_utilities">
+		<ant dir="${istprojects.dir}/common" antfile="build.xml" inheritAll="false" target="ensureJarExists" />
+	</target>
+	<target name="createMissingPackageDocumentation">
+		<taskdef name="create-pi" classname="de.uni_koblenz.ist.utilities.ant.CreateMissingPackageDocumentation">
+			<classpath refid="gremf.util.path" />
+		</taskdef>
+		<create-pi srcDir="${src.dir}" />
+	</target>
+	<target name="addLicenseHeaders" depends="ist_utilities, clean, createMissingPackageDocumentation" if="license.file">
+		<java classname="de.uni_koblenz.ist.utilities.license_header.LicenseHeader" fork="true" dir=".">
+			<arg line="-i ${src.dir} -l ${license.file} -r" />
+			<classpath refid="gremf.util.path" />
+		</java>
+		<java classname="de.uni_koblenz.ist.utilities.license_header.LicenseHeader" fork="true" dir=".">
+			<arg line="-i ${test.dir} -l ${license.file} -r" />
+			<classpath refid="gremf.util.path" />
+		</java>
+		<java classname="de.uni_koblenz.ist.utilities.license_header.LicenseHeader" fork="true" dir=".">
+			<arg line="-i ${eval.dir} -l ${license.file} -r" />
+			<classpath refid="gremf.util.path" />
+		</java>
+	</target>
+
+	<target name="document">
+		<delete dir="${doc.dir}/html" />
+		<mkdir dir="${doc.dir}/html" />
+		<javadoc sourcepath="${src.dir}" destdir="${doc.dir}/html" packagenames="${basePackage}.*" excludepackagenames="${documentexcludes}" access="${document.access}" encoding="${javac.encoding}">
+			<classpath refid="gremf.util.path" />
+		</javadoc>
+		<zip destfile="${doc.dir}/${projectname}_api.zip" basedir="${doc.dir}/html" compress="true" />
+	</target>
+
+</project>

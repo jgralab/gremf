@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<universitycourses:UniversityCoursesModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:universitycourses="http://universitycourses/1.0" xmlns:universitycourses.people="http://universitycourses/1.0/people" xmlns:universitycourses.work="http://universitycourses/1.0/work">
+  <modelPerson xsi:type="universitycourses.people:Professor" name="Albert Einstein" rank="W2" lecture="//@modelCourse.0"/>
+  <modelPerson xsi:type="universitycourses.people:Assistant" name="Hans Hansen" salary="100.0" tutorial="//@modelCourse.1"/>
+  <modelPerson xsi:type="universitycourses.people:Student" name="Stefan Student" averageGrade="2.5" course="//@modelCourse.0 //@modelCourse.1"/>
+  <modelPerson xsi:type="universitycourses.people:Professor" name="Konrad Zuse" rank="W3" lecture="//@modelCourse.2"/>
+  <modelPerson xsi:type="universitycourses.people:Student" name="Steward Student" averageGrade="2.1" course="//@modelCourse.2 //@modelCourse.0 //@modelCourse.1"/>
+  <modelCourse xsi:type="universitycourses.work:Lecture" visitor="//@modelPerson.2 //@modelPerson.4" title="Theory of Relativity" lecturer="//@modelPerson.0" helpingTutorial="//@modelCourse.1">
+    <courseSection caption="The Universe" content="a lot of imortant things"/>
+  </modelCourse>
+  <modelCourse xsi:type="universitycourses.work:Tutorial" visitor="//@modelPerson.2 //@modelPerson.4" title="Tutorium for Theory of Relativity" tutor="//@modelPerson.1" belongingLecture="//@modelCourse.0">
+    <courseSection caption="Introduction" content="work"/>
+  </modelCourse>
+  <modelCourse xsi:type="universitycourses.work:Lecture" visitor="//@modelPerson.4" title="Basics of Computer Science" lecturer="//@modelPerson.3">
+    <courseSection caption="The first maschine" content="anything"/>
+  </modelCourse>
+</universitycourses:UniversityCoursesModel>

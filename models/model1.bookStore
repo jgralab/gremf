@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bookstore="http://de.uni_koblenz.gremf/bookstore">
+  <bookstore:BookStore owner="David Brown" location="Street#12, Top Town, NY" soldBooks="/1">
+    <books name="Harry Potter and the Deathly Hallows" isbn="157221">
+      <chapters startPage="1">
+        <containee name="Preface" pages="3"/>
+      </chapters>
+    </books>
+  </bookstore:BookStore>
+  <bookstore:Sells price="25.95" sellsSubject="Street#12, Top Town, NY" sellsObject="/0/@books.0"/>
+</xmi:XMI>
