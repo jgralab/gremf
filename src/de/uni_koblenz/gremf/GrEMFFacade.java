@@ -58,5 +58,15 @@ public class GrEMFFacade {
 		}
 		return factory;
 	}
+	
+	private static GrEMFResourceFactoryImpl factoryEcore;
 
+	public static ResourceFactoryImpl getGrEMFResourceFactoryForEcoreFiles(){
+		if(factoryEcore == null){
+			factoryEcore = new GrEMFResourceFactoryImpl();
+			factoryEcore.setLoadDotEcoreFilesAsGremf(true);
+		}
+		return factoryEcore;
+	}
+	
 }

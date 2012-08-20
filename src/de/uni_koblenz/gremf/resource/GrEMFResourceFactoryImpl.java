@@ -98,6 +98,20 @@ public class GrEMFResourceFactoryImpl extends ResourceFactoryImpl {
 		GREMF_SCHEMA, GREMF_INSTANCE, TG, OTHER
 	}
 
+	private boolean acceptEcores = false;
+	
+	/**
+	 * Sets the value that specifies whether files ending with .ecore
+	 * should be loaded as grEMF schema. The default is false, in that
+	 * case .ecore files are loaded with the EcoreResourceFactory and 
+	 * not with grEMF. 
+	 * 
+	 * @param val the new value
+	 */
+	public void setLoadDotEcoreFilesAsGremf(boolean val){
+		this.acceptEcores = val;
+	}
+	
 	/**
 	 * known, i.e. already loaded, schemas mapped to their qualified name
 	 */
@@ -131,7 +145,10 @@ public class GrEMFResourceFactoryImpl extends ResourceFactoryImpl {
 
 		if (uri.fileExtension().equals("gremf")) {
 			return ResourceType.GREMF_SCHEMA;
-		} else if (uri.fileExtension().equals("tg")) {
+		}else if(this.acceptEcores && uri.fileExtension().equals("ecore")){
+			return ResourceType.GREMF_SCHEMA;
+		}
+		else if (uri.fileExtension().equals("tg")) {
 			return ResourceType.TG;
 		} else {
 			return this.investigateResourceFile(uri);
