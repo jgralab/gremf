@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="toytrain"
+    nsURI="http://toytrain/1.0" nsPrefix="toytrain">
+  <eClassifiers xsi:type="ecore:EClass" name="Project" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="components" upperBound="-1"
+        eType="#//Component" containment="true" eOpposite="#//Component/project"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connections" upperBound="-1"
+        eType="#//Connection" containment="true" eOpposite="#//Connection/project"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trains" upperBound="-1"
+        eType="#//Train" containment="true" eOpposite="#//Train/project"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ports" upperBound="-1"
+        eType="#//Port" containment="true" eOpposite="#//Port/component"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" lowerBound="1"
+        eType="#//Project" eOpposite="#//Project/components"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="trains" upperBound="-1"
+        eType="#//Train" eOpposite="#//Train/position"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Track" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Switch" eSuperTypes="#//Component"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Port" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" lowerBound="1"
+        eType="#//Component" eOpposite="#//Component/ports"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Out" eSuperTypes="#//Port">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" eType="#//Connection"
+        eOpposite="#//Connection/source"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="In" eSuperTypes="#//Port">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connection" eType="#//Connection"
+        eOpposite="#//Connection/target"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Out" eOpposite="#//Out/connection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" lowerBound="1"
+        eType="#//In" eOpposite="#//In/connection"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" lowerBound="1"
+        eType="#//Project" eOpposite="#//Project/connections"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Train" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="position" lowerBound="1"
+        eType="#//Component" eOpposite="#//Component/trains"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="project" lowerBound="1"
+        eType="#//Project" eOpposite="#//Project/trains"/>
+  </eClassifiers>
+</ecore:EPackage>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<toytrain:Project xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:toytrain="http://toytrain/1.0" xsi:schemaLocation="http://de.uni_koblenz.gremf/toytrain.gremf">
+  <components xsi:type="toytrain:Track" name="track1">
+    <ports xsi:type="toytrain:In" connection="//@connections.7"/>
+    <ports xsi:type="toytrain:Out" connection="//@connections.0"/>
+  </components>
+  <components xsi:type="toytrain:Track" name="track2" trains="//@trains.0">
+    <ports xsi:type="toytrain:In" connection="//@connections.0"/>
+    <ports xsi:type="toytrain:Out" connection="//@connections.1"/>
+  </components>
+  <components xsi:type="toytrain:Switch" name="splitSwitch" trains="//@trains.1">
+    <ports xsi:type="toytrain:In" connection="//@connections.1"/>
+    <ports xsi:type="toytrain:Out" connection="//@connections.2"/>
+    <ports xsi:type="toytrain:Out" connection="//@connections.3"/>
+  </components>
+  <components xsi:type="toytrain:Track" name="track3.1">
+    <ports xsi:type="toytrain:In" connection="//@connections.2"/>
+    <ports xsi:type="toytrain:Out" connection="//@connections.4"/>
+  </components>
+  <components xsi:type="toytrain:Track" name="track3.2">
+    <ports xsi:type="toytrain:In" connection="//@connections.3"/>
+    <ports xsi:type="toytrain:Out" connection="//@connections.5"/>
+  </components>
+  <components xsi:type="toytrain:Switch" name="joinSwitch">
+    <ports xsi:type="toytrain:In" connection="//@connections.4"/>
+    <ports xsi:type="toytrain:In" connection="//@connections.5"/>
+    <ports xsi:type="toytrain:Out" connection="//@connections.6"/>
+  </components>
+  <components xsi:type="toytrain:Track" name="track4">
+    <ports xsi:type="toytrain:In" connection="//@connections.6"/>
+    <ports xsi:type="toytrain:Out" connection="//@connections.7"/>
+  </components>
+  <connections name="tr1_to_tr2" source="//@components.0/@ports.1" target="//@components.1/@ports.0"/>
+  <connections name="tr2_to_spSw" source="//@components.1/@ports.1" target="//@components.2/@ports.0"/>
+  <connections name="spSw_to_tr3.1" source="//@components.2/@ports.1" target="//@components.3/@ports.0"/>
+  <connections name="spSw_to_tr3.2" source="//@components.2/@ports.2" target="//@components.4/@ports.0"/>
+  <connections name="tr3.1_to_joSw" source="//@components.3/@ports.1" target="//@components.5/@ports.0"/>
+  <connections name="tr3.2_to_joSw" source="//@components.4/@ports.1" target="//@components.5/@ports.1"/>
+  <connections name="joSw_to_tr4" source="//@components.5/@ports.2" target="//@components.6/@ports.0"/>
+  <connections name="tr4_to_tr1" source="//@components.6/@ports.1" target="//@components.0/@ports.0"/>
+  <trains name="Intercity" position="//@components.1"/>
+  <trains name="Vectus" position="//@components.2"/>
+</toytrain:Project>
