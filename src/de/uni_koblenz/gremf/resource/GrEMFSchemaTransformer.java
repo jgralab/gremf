@@ -219,7 +219,7 @@ public class GrEMFSchemaTransformer {
 				// implicitly created via EClass and EEnum
 				this.packages.add((EPackage) eObj);
 			} else if (eObj instanceof EClass) {
-				if (isVertexClass((EClass) eObj)) {
+				if (isVertexClassCertainly((EClass) eObj)) {
 					this.vertexClasses.add((EClass) eObj);
 				} else {
 					this.edgeClasses.add((EClass) eObj);
@@ -938,21 +938,22 @@ public class GrEMFSchemaTransformer {
 	/**
 	 * Determines whether the given EMF <code>EClass</code> is a grEMF
 	 * <code>GrEMFVertexClassImpl</code> in any case. If so, return true,
-	 * otherwise false. It is a <code>GrEMFVertexClassImpl</code>, if <br>
+	 * otherwise false. <br>
+	 * It is a <code>GrEMFVertexClassImpl</code>, if <br>
 	 * - there are no 2 references <br>
 	 * - there are no 2 references stating the end of an edge <br>
 	 * or <br>
 	 * - there is no reference stating the multiplicity of an edge. <br>
 	 * <br>
 	 * Note that there can be other <code>EClasses</code> being also a
-	 * <code>GrEMFVertexClassImpl</code>.
+	 * <code>GrEMFVertexClassImpl</code>
 	 * 
 	 * @param eCls
 	 *            input <code>EClass</code>
 	 * @return true if <code>c</code> is a <code>GrEMFVertexClassImpl</code> in
 	 *         any case
 	 */
-	private static boolean isVertexClass(EClass eCls) {
+	private static boolean isVertexClassCertainly(EClass eCls) {
 		EList<EReference> eRefs = eCls.getEReferences();
 		// edge class: 2 references
 		if (eRefs.size() != 2) {
@@ -999,13 +1000,23 @@ public class GrEMFSchemaTransformer {
 	 * @return ascending order based on the numbers of supertypes
 	 */
 	private static EClass[] buildOrder(Set<EClass> classes) {
-		// compute offsets
-		int[] offsets = new int[classes.size()];
+		// compute greatest offset index
+		int max = 0;
+		for(EClass eCls : classes) {
+			int i = eCls.getEAllSuperTypes().size();
+			if(i > max) {
+				max = i;
+			}
+		}
+		
+		// offsets
+		int[] offsets = new int[max + 1];
 
 		// enter occurrences of number of supertypes
 		for (EClass eCls : classes) {
 			offsets[eCls.getEAllSuperTypes().size()]++;
 		}
+		// apply offset shift
 		int offset = 0;
 		for (int i = 0; i < offsets.length; i++) {
 			int o = offsets[i];

@@ -112,6 +112,22 @@ public class SchemaLoadTest {
 			System.out.println(eObj + ": " + eObj.getClass());
 		}
 	}
+	
+	@Test
+	public void testIncompatibleEdgeClass() {
+		ResourceSet rs = new ResourceSetImpl();
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put("*", new GrEMFResourceFactoryImpl());
+
+		Resource toytrain = rs.getResource(URI.createURI(this.dir + "toytrain.gremf"), true);
+
+		TreeIterator<EObject> i = toytrain.getAllContents();
+		while (i.hasNext()) {
+			EObject eObj = i.next();
+			System.out.println(eObj + ": " + eObj.getClass());
+		}
+
+	}
 
 	@Test
 	public void testExtendedSchema1() {

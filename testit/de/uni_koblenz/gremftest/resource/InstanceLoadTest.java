@@ -98,6 +98,26 @@ public class InstanceLoadTest {
 		}
 
 	}
+	
+	@Test
+	public void testIncompatibleEdge() {
+		ResourceSet rs = new ResourceSetImpl();
+		rs.getResourceFactoryRegistry().getExtensionToFactoryMap()
+				.put("*", new GrEMFResourceFactoryImpl());
+
+		rs.getResource(URI.createURI(this.dir + "toytrain.gremf"), true);
+
+		Resource instance = rs.getResource(
+				URI.createURI(this.dir + "example.toytrain"), true);
+
+		TreeIterator<EObject> i = instance.getAllContents();
+		while (i.hasNext()) {
+			EObject eObj = i.next();
+			System.out.println(eObj);
+			System.out.println(eObj.eClass());
+		}
+
+	}
 
 	@Test
 	public void testExtendedInstance1() {
