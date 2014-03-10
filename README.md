@@ -15,7 +15,7 @@ Due to this dependencies it is assumed to checkout all relevant projects:
 * [`commom`](https://github.com/jgralab/common.git)
 * [`org.eclipse.emf.ecore`](git://git.eclipse.org/gitroot/emf/org.eclipse.emf.git)
 * [`org.eclipse.emf.ecore.xmi`](git://git.eclipse.org/gitroot/emf/org.eclipse.emf.git)
-* [`org.eclipse.emf.ecore.common`](git://git.eclipse.org/gitroot/emf/org.eclipse.emf.git)
+* [`org.eclipse.emf.common`](git://git.eclipse.org/gitroot/emf/org.eclipse.emf.git)
 
 Start the building by checking out the `gremf` project:
 
